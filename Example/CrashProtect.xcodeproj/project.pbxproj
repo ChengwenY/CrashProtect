@@ -3,12 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A1644DA1B9FEA73F5CD21971 /* Pods_CrashProtect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A73B45834A20C6183D4FBAC2 /* Pods_CrashProtect.framework */; };
 		E8318058249A6AEB00D31163 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8318057249A6AEB00D31163 /* AppDelegate.swift */; };
-		E831805A249A6AEB00D31163 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8318059249A6AEB00D31163 /* SceneDelegate.swift */; };
 		E831805C249A6AEB00D31163 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E831805B249A6AEB00D31163 /* ViewController.swift */; };
 		E831805F249A6AEB00D31163 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E831805D249A6AEB00D31163 /* Main.storyboard */; };
 		E8318061249A6AEE00D31163 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E8318060249A6AEE00D31163 /* Assets.xcassets */; };
@@ -16,14 +16,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		361BDC87504BF25FD4B4D8B9 /* Pods-CrashProtect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrashProtect.debug.xcconfig"; path = "Target Support Files/Pods-CrashProtect/Pods-CrashProtect.debug.xcconfig"; sourceTree = "<group>"; };
+		A73B45834A20C6183D4FBAC2 /* Pods_CrashProtect.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CrashProtect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8318054249A6AEB00D31163 /* CrashProtect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CrashProtect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8318057249A6AEB00D31163 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E8318059249A6AEB00D31163 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		E831805B249A6AEB00D31163 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E831805E249A6AEB00D31163 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E8318060249A6AEE00D31163 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E8318063249A6AEE00D31163 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E8318065249A6AEE00D31163 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E8B3A08324A841DC000C6369 /* CrashProtect-bridge-header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CrashProtect-bridge-header.h"; sourceTree = "<group>"; };
+		FCFBFB7D751FA072A1A4E1F9 /* Pods-CrashProtect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrashProtect.release.xcconfig"; path = "Target Support Files/Pods-CrashProtect/Pods-CrashProtect.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +34,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1644DA1B9FEA73F5CD21971 /* Pods_CrashProtect.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		44D0088E6E2652E93F572EA7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				361BDC87504BF25FD4B4D8B9 /* Pods-CrashProtect.debug.xcconfig */,
+				FCFBFB7D751FA072A1A4E1F9 /* Pods-CrashProtect.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		B5E7D8097EEAD2F262C9E31F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A73B45834A20C6183D4FBAC2 /* Pods_CrashProtect.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E831804B249A6AEA00D31163 = {
 			isa = PBXGroup;
 			children = (
 				E8318056249A6AEB00D31163 /* CrashProtect */,
 				E8318055249A6AEB00D31163 /* Products */,
+				44D0088E6E2652E93F572EA7 /* Pods */,
+				B5E7D8097EEAD2F262C9E31F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,12 +80,12 @@
 			isa = PBXGroup;
 			children = (
 				E8318057249A6AEB00D31163 /* AppDelegate.swift */,
-				E8318059249A6AEB00D31163 /* SceneDelegate.swift */,
 				E831805B249A6AEB00D31163 /* ViewController.swift */,
 				E831805D249A6AEB00D31163 /* Main.storyboard */,
 				E8318060249A6AEE00D31163 /* Assets.xcassets */,
 				E8318062249A6AEE00D31163 /* LaunchScreen.storyboard */,
 				E8318065249A6AEE00D31163 /* Info.plist */,
+				E8B3A08324A841DC000C6369 /* CrashProtect-bridge-header.h */,
 			);
 			path = CrashProtect;
 			sourceTree = "<group>";
@@ -74,9 +97,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E8318068249A6AEE00D31163 /* Build configuration list for PBXNativeTarget "CrashProtect" */;
 			buildPhases = (
+				7D25EF8FDA38FFDF67CDB05E /* [CP] Check Pods Manifest.lock */,
 				E8318050249A6AEA00D31163 /* Sources */,
 				E8318051249A6AEA00D31163 /* Frameworks */,
 				E8318052249A6AEA00D31163 /* Resources */,
+				600D3140C5016058CFD46402 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -133,6 +158,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		600D3140C5016058CFD46402 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CrashProtect/Pods-CrashProtect-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CrashProtect/Pods-CrashProtect-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CrashProtect/Pods-CrashProtect-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7D25EF8FDA38FFDF67CDB05E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CrashProtect-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E8318050249A6AEA00D31163 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -140,7 +207,6 @@
 			files = (
 				E831805C249A6AEB00D31163 /* ViewController.swift in Sources */,
 				E8318058249A6AEB00D31163 /* AppDelegate.swift in Sources */,
-				E831805A249A6AEB00D31163 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,6 +348,7 @@
 		};
 		E8318069249A6AEE00D31163 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 361BDC87504BF25FD4B4D8B9 /* Pods-CrashProtect.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -293,6 +360,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = CW.CrashProtect;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CrashProtect/CrashProtect-bridge-header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -300,6 +368,7 @@
 		};
 		E831806A249A6AEE00D31163 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FCFBFB7D751FA072A1A4E1F9 /* Pods-CrashProtect.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -311,6 +380,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = CW.CrashProtect;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CrashProtect/CrashProtect-bridge-header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
