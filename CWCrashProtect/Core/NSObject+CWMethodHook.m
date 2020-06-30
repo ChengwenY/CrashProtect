@@ -10,7 +10,7 @@
 
 
 @implementation NSObject (CWMethodHook)
-+ (void)swizzleMethod:(Class)cls originSEL:(SEL)originSEL newSEL:(SEL)newSEL
++ (void)swizzleInstanceMethod:(Class)cls originSEL:(SEL)originSEL newSEL:(SEL)newSEL
 {
     Method originalMethod = class_getInstanceMethod(cls, originSEL);
     Method newMethod = class_getInstanceMethod(cls, newSEL);
@@ -21,6 +21,20 @@
     } else {
         method_exchangeImplementations(originalMethod, newMethod);
     }
-    
 }
+
++ (void)swizzleClassMethod:(Class)cls originSEL:(SEL)originSEL newSEL:(SEL)newSEL
+{
+    Class metaClass = objc_getMetaClass(class_getName(cls));
+    Method origMethod = class_getInstanceMethod(metaClass, originSEL);
+    Method newMethod = class_getInstanceMethod(metaClass, newSEL);
+    
+    BOOL didAddMethod = class_addMethod(metaClass, originSEL, method_getImplementation(newMethod), method_getTypeEncoding(newMethod));
+    if (didAddMethod) {
+        class_replaceMethod(metaClass, newSEL, method_getImplementation(origMethod), method_getTypeEncoding(origMethod));
+    } else {
+        method_exchangeImplementations(origMethod, newMethod);
+    }
+}
+
 @end

@@ -10,8 +10,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSObject (CWMethodHook)
 
-+ (void)swizzleMethod:(Class)cls originSEL:(SEL)originSEL newSEL:(SEL)newSEL;
-
++ (void)swizzleInstanceMethod:(Class)cls originSEL:(SEL)originSEL newSEL:(SEL)newSEL;
++ (void)swizzleClassMethod:(Class)cls originSEL:(SEL)originSEL newSEL:(SEL)newSEL;
 @end
 
 NS_ASSUME_NONNULL_END

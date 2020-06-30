@@ -9,7 +9,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NSObject (CWKvoGuard)
+@interface NSObject (CWKVOGuard)
+
+
 
 @end
 

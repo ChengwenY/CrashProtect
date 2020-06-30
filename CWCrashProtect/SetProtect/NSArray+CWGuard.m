@@ -16,16 +16,17 @@
     dispatch_once(&onceToken, ^{
         //objectAtIndex
         SEL origAtIndex = @selector(objectAtIndex:);
-        [[self class] swizzleMethod:NSClassFromString(@"__NSAarray0") originSEL:origAtIndex newSEL:@selector(cw_zeroObjectAtIndex:)];
-        [[self class] swizzleMethod:NSClassFromString(@"__NSSingleObjectArrayI") originSEL:origAtIndex newSEL:@selector(cw_singleObjectAtIndex:)];
-        [[self class] swizzleMethod:NSClassFromString(@"__NSArrayI") originSEL:origAtIndex newSEL:@selector(cw_objectAtIndex:)];
+        [[self class] swizzleInstanceMethod:NSClassFromString(@"__NSAarray0") originSEL:origAtIndex newSEL:@selector(cw_zeroObjectAtIndex:)];
+        [[self class] swizzleInstanceMethod:NSClassFromString(@"__NSSingleObjectArrayI") originSEL:origAtIndex newSEL:@selector(cw_singleObjectAtIndex:)];
+        [[self class] swizzleInstanceMethod:NSClassFromString(@"__NSArrayI") originSEL:origAtIndex newSEL:@selector(cw_objectAtIndex:)];
+        [[self class] swizzleInstanceMethod:NSClassFromString(@"__NSArrayM") originSEL:origAtIndex newSEL:@selector(cw_mObjectAtIndex:)];
         
         //objectAtIndexedSubscript
         SEL origSubScript = @selector(objectAtIndexedSubscript:);
-        [[self class] swizzleMethod:NSClassFromString(@"__NSArray0") originSEL:origSubScript newSEL:@selector(cw_zeroObjectAtIndexedSubscript:)];
-        [[self class] swizzleMethod:NSClassFromString(@"__NSSingleObjectArrayI") originSEL:origSubScript newSEL:@selector(cw_singleObjectAtIndexedSubscript:)];
-        [[self class] swizzleMethod:NSClassFromString(@"__NSArrayI") originSEL:origSubScript newSEL:@selector(cw_objectAtIndexedSubscript:)];
-        [[self class] swizzleMethod:NSClassFromString(@"__NSArrayM") originSEL:origSubScript newSEL:@selector(cw_mObjectAtIndexedSubscript:)];
+        [[self class] swizzleInstanceMethod:NSClassFromString(@"__NSArray0") originSEL:origSubScript newSEL:@selector(cw_zeroObjectAtIndexedSubscript:)];
+        [[self class] swizzleInstanceMethod:NSClassFromString(@"__NSSingleObjectArrayI") originSEL:origSubScript newSEL:@selector(cw_singleObjectAtIndexedSubscript:)];
+        [[self class] swizzleInstanceMethod:NSClassFromString(@"__NSArrayI") originSEL:origSubScript newSEL:@selector(cw_objectAtIndexedSubscript:)];
+        [[self class] swizzleInstanceMethod:NSClassFromString(@"__NSArrayM") originSEL:origSubScript newSEL:@selector(cw_mObjectAtIndexedSubscript:)];
     });
 }
 
