@@ -14,6 +14,9 @@
 		E8B3A0C924AAE6F1000C6369 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E8B3A0C824AAE6F1000C6369 /* Assets.xcassets */; };
 		E8B3A0CC24AAE6F1000C6369 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8B3A0CA24AAE6F1000C6369 /* LaunchScreen.storyboard */; };
 		E8B3A0CF24AAE6F1000C6369 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E8B3A0CE24AAE6F1000C6369 /* main.m */; };
+		E8B3A0DA24AB3058000C6369 /* ContainerTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E8B3A0D924AB3058000C6369 /* ContainerTestVC.m */; };
+		E8B3A0DD24AB3068000C6369 /* KVOTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E8B3A0DC24AB3068000C6369 /* KVOTestVC.m */; };
+		E8B3A0E024AB307A000C6369 /* SelectorTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E8B3A0DF24AB307A000C6369 /* SelectorTestVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +32,12 @@
 		E8B3A0CB24AAE6F1000C6369 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E8B3A0CD24AAE6F1000C6369 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E8B3A0CE24AAE6F1000C6369 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E8B3A0D824AB3058000C6369 /* ContainerTestVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContainerTestVC.h; sourceTree = "<group>"; };
+		E8B3A0D924AB3058000C6369 /* ContainerTestVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContainerTestVC.m; sourceTree = "<group>"; };
+		E8B3A0DB24AB3068000C6369 /* KVOTestVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KVOTestVC.h; sourceTree = "<group>"; };
+		E8B3A0DC24AB3068000C6369 /* KVOTestVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KVOTestVC.m; sourceTree = "<group>"; };
+		E8B3A0DE24AB307A000C6369 /* SelectorTestVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SelectorTestVC.h; sourceTree = "<group>"; };
+		E8B3A0DF24AB307A000C6369 /* SelectorTestVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SelectorTestVC.m; sourceTree = "<group>"; };
 		E95E96618666A480E98F0CAD /* Pods_CWCrashProtect.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CWCrashProtect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9CECFBE181EED88E88E93EB /* Pods-CWCrashProtect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CWCrashProtect.release.xcconfig"; path = "Target Support Files/Pods-CWCrashProtect/Pods-CWCrashProtect.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -83,6 +92,9 @@
 		E8B3A0BB24AAE6EC000C6369 /* CWCrashProtect */ = {
 			isa = PBXGroup;
 			children = (
+				E8B3A0D724AB2EC6000C6369 /* Selector */,
+				E8B3A0D624AB2EC0000C6369 /* KVO */,
+				E8B3A0D524AB2EAE000C6369 /* Container */,
 				E8B3A0BC24AAE6EC000C6369 /* AppDelegate.h */,
 				E8B3A0BD24AAE6EC000C6369 /* AppDelegate.m */,
 				E8B3A0BF24AAE6EC000C6369 /* SceneDelegate.h */,
@@ -95,6 +107,33 @@
 				E8B3A0CE24AAE6F1000C6369 /* main.m */,
 			);
 			path = CWCrashProtect;
+			sourceTree = "<group>";
+		};
+		E8B3A0D524AB2EAE000C6369 /* Container */ = {
+			isa = PBXGroup;
+			children = (
+				E8B3A0D824AB3058000C6369 /* ContainerTestVC.h */,
+				E8B3A0D924AB3058000C6369 /* ContainerTestVC.m */,
+			);
+			path = Container;
+			sourceTree = "<group>";
+		};
+		E8B3A0D624AB2EC0000C6369 /* KVO */ = {
+			isa = PBXGroup;
+			children = (
+				E8B3A0DB24AB3068000C6369 /* KVOTestVC.h */,
+				E8B3A0DC24AB3068000C6369 /* KVOTestVC.m */,
+			);
+			path = KVO;
+			sourceTree = "<group>";
+		};
+		E8B3A0D724AB2EC6000C6369 /* Selector */ = {
+			isa = PBXGroup;
+			children = (
+				E8B3A0DE24AB307A000C6369 /* SelectorTestVC.h */,
+				E8B3A0DF24AB307A000C6369 /* SelectorTestVC.m */,
+			);
+			path = Selector;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,8 +251,11 @@
 			files = (
 				E8B3A0C424AAE6EC000C6369 /* ViewController.m in Sources */,
 				E8B3A0BE24AAE6EC000C6369 /* AppDelegate.m in Sources */,
+				E8B3A0DA24AB3058000C6369 /* ContainerTestVC.m in Sources */,
+				E8B3A0DD24AB3068000C6369 /* KVOTestVC.m in Sources */,
 				E8B3A0CF24AAE6F1000C6369 /* main.m in Sources */,
 				E8B3A0C124AAE6EC000C6369 /* SceneDelegate.m in Sources */,
+				E8B3A0E024AB307A000C6369 /* SelectorTestVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,6 +389,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 3WUYEW92SE;
 				INFOPLIST_FILE = CWCrashProtect/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

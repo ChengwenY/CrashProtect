@@ -7,11 +7,13 @@
 //
 
 #import "ViewController.h"
+#import "ContainerTestVC.h"
+#import "KVOTestVC.h"
 
-@interface ViewController ()
+@interface ViewController ()<UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) NSMutableArray *dataSource;
-
+@property (nonatomic, strong) UITableView *tableView;
 @end
 
 @implementation ViewController
@@ -20,7 +22,19 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.dataSource = @[@"集合类崩溃", @"方法未实现", @"KVC/KVO"].mutableCopy;
+    self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    [self.view addSubview:self.tableView];
+    self.dataSource = @[
+        @{@"title" : @"集合类崩溃",
+            @"vc" : @"ContainerTestVC",
+        }, @{@"title" : @"方法未实现",
+            @"vc" : @"SelectorTestVC",
+        }, @{@"title" : @"KVC/KVO",
+            @"vc" : @"KVOTestVC"
+        }
+    ].mutableCopy;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -44,14 +58,19 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
-        cell.textLabel.text = self.dataSource[indexPath.row];
+        cell.textLabel.text = self.dataSource[indexPath.row][@"title"];
     }
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSString *vcName = self.dataSource[indexPath.row][@"vc"];
     
+    Class vcCls = NSClassFromString(vcName);
+
+    UIViewController *vc = [[vcCls alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 

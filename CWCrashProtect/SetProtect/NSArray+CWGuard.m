@@ -16,7 +16,7 @@
     dispatch_once(&onceToken, ^{
         //objectAtIndex
         SEL origAtIndex = @selector(objectAtIndex:);
-        [[self class] swizzleInstanceMethod:NSClassFromString(@"__NSAarray0") originSEL:origAtIndex newSEL:@selector(cw_zeroObjectAtIndex:)];
+        [[self class] swizzleInstanceMethod:NSClassFromString(@"__NSArray0") originSEL:origAtIndex newSEL:@selector(cw_zeroObjectAtIndex:)];
         [[self class] swizzleInstanceMethod:NSClassFromString(@"__NSSingleObjectArrayI") originSEL:origAtIndex newSEL:@selector(cw_singleObjectAtIndex:)];
         [[self class] swizzleInstanceMethod:NSClassFromString(@"__NSArrayI") originSEL:origAtIndex newSEL:@selector(cw_objectAtIndex:)];
         [[self class] swizzleInstanceMethod:NSClassFromString(@"__NSArrayM") originSEL:origAtIndex newSEL:@selector(cw_mObjectAtIndex:)];

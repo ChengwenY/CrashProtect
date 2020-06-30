@@ -67,7 +67,6 @@
         self.keyPathMap[keyPath] = array;
         return YES;
     } else {
-        NSLog(@"重复添加观察者：%@ keyPath:%@", observer, keyPath);
         return NO;
     }
 }
@@ -116,7 +115,7 @@
 {
     NSMutableArray *infos = [self kvoInfosOfKeyPath:keyPath];
     [infos enumerateObjectsUsingBlock:^(CWKVOInfo *obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        [obj observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+        [obj->observer observeValueForKeyPath:keyPath ofObject:object change:change context:context];
     }];
 }
 

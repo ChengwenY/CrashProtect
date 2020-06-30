@@ -12,7 +12,7 @@
 
 @implementation NSObject (CWKVOGuard)
 static void *CWKVODefenderKey = &CWKVODefenderKey;
-static NSString *const CWKVODefenderValue =  "CW_KVODefenderKey";
+static NSString *const CWKVODefenderValue =  @"CW_KVODefenderKey";
 static inline BOOL isSystemObject(Class cls) {
     NSString *clsName = NSStringFromClass(cls);
     BOOL systemCls = NO;
@@ -20,14 +20,24 @@ static inline BOOL isSystemObject(Class cls) {
         systemCls = YES;
         return YES;
     }
-    NSBundle bundle = [NSBundle bundleForClass:cls];
+    NSBundle *bundle = [NSBundle bundleForClass:cls];
     if (bundle == [NSBundle mainBundle]) {
-        systemCls = YES;
-    } else {
         systemCls = NO;
+    } else {
+        systemCls = YES;
     }
     
     return systemCls;
+}
+
++ (void)load {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        
+        [self swizzleInstanceMethod:[NSObject class] originSEL:@selector(addObserver:forKeyPath:options:context:) newSEL:@selector(cw_addObserver:forKeyPath:options:context:)];
+        [self swizzleInstanceMethod:[NSObject class] originSEL:@selector(removeObserver:forKeyPath:) newSEL:@selector(cw_removeObserver:forKeyPath:)];
+        [self swizzleInstanceMethod:[NSObject class] originSEL:@selector(removeObserver:forKeyPath:context:) newSEL:@selector(cw_removeObserver:forKeyPath:context:)];
+    });
 }
 
 - (CWKVODelegate *)kvoDelegate
@@ -60,6 +70,7 @@ static inline BOOL isSystemObject(Class cls) {
             [self cw_addObserver:self.kvoDelegate forKeyPath:keyPath options:options context:context];
         } else {
             //error 重复添加
+            NSLog(@"重复添加observer %@  observer: %@ keyPath: %@", [self class], observer, keyPath);
         }
         
     } else {
@@ -75,6 +86,7 @@ static inline BOOL isSystemObject(Class cls) {
             [self cw_removeObserver:self.kvoDelegate forKeyPath:keyPath];
         } else {
             // error
+            NSLog(@"重复删除observer %@  observer: %@ keyPath: %@", [self class], observer, keyPath);
         }
         
     } else {
@@ -89,6 +101,7 @@ static inline BOOL isSystemObject(Class cls) {
             [self cw_removeObserver:observer forKeyPath:keyPath context:context];
         } else {
             //error
+            NSLog(@"重复删除observer %@  observer: %@ keyPath: %@", [self class], observer, keyPath);
         }
     } else {
         [self cw_removeObserver:observer forKeyPath:keyPath context:context];
@@ -103,6 +116,7 @@ static inline BOOL isSystemObject(Class cls) {
             NSArray *keyPaths = [self.kvoDelegate getAllKeyPaths];
             if (keyPaths.count > 0) {
                 //error
+                NSLog(@"%@ 释放，未移除observer",self);
             }
             for (NSString *keyPath in keyPaths) {
                 [self cw_removeObserver:self.kvoDelegate forKeyPath:keyPath];
