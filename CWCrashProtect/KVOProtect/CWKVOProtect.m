@@ -32,7 +32,7 @@
 {
     if (!isSystemObject([self class])) {
         CW_CrashErrorHandler(ECWCrashTypeKVO, @{}, @"[%@ valueForUndefinedKey:]: this class is not key value coding-compliant for the key %@", self, key);
-
+        return nil;
     } else {
         return [self cw_valueForUndefinedKey:key];
     }
