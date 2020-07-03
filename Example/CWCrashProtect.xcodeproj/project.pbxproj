@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AC94768AEE43AC3BBC804FCA /* Pods_CWCrashProtect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E95E96618666A480E98F0CAD /* Pods_CWCrashProtect.framework */; };
 		E8B3A0BE24AAE6EC000C6369 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E8B3A0BD24AAE6EC000C6369 /* AppDelegate.m */; };
 		E8B3A0C124AAE6EC000C6369 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E8B3A0C024AAE6EC000C6369 /* SceneDelegate.m */; };
 		E8B3A0C424AAE6EC000C6369 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8B3A0C324AAE6EC000C6369 /* ViewController.m */; };
@@ -17,6 +16,7 @@
 		E8B3A0DA24AB3058000C6369 /* ContainerTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E8B3A0D924AB3058000C6369 /* ContainerTestVC.m */; };
 		E8B3A0DD24AB3068000C6369 /* KVOTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E8B3A0DC24AB3068000C6369 /* KVOTestVC.m */; };
 		E8B3A0E024AB307A000C6369 /* SelectorTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E8B3A0DF24AB307A000C6369 /* SelectorTestVC.m */; };
+		FEACE84B8338FE9913165960 /* libPods-CWCrashProtect.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F136F04F6357CEA7DFD6309B /* libPods-CWCrashProtect.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,8 +38,8 @@
 		E8B3A0DC24AB3068000C6369 /* KVOTestVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KVOTestVC.m; sourceTree = "<group>"; };
 		E8B3A0DE24AB307A000C6369 /* SelectorTestVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SelectorTestVC.h; sourceTree = "<group>"; };
 		E8B3A0DF24AB307A000C6369 /* SelectorTestVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SelectorTestVC.m; sourceTree = "<group>"; };
-		E95E96618666A480E98F0CAD /* Pods_CWCrashProtect.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CWCrashProtect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9CECFBE181EED88E88E93EB /* Pods-CWCrashProtect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CWCrashProtect.release.xcconfig"; path = "Target Support Files/Pods-CWCrashProtect/Pods-CWCrashProtect.release.xcconfig"; sourceTree = "<group>"; };
+		F136F04F6357CEA7DFD6309B /* libPods-CWCrashProtect.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CWCrashProtect.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,7 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC94768AEE43AC3BBC804FCA /* Pods_CWCrashProtect.framework in Frameworks */,
+				FEACE84B8338FE9913165960 /* libPods-CWCrashProtect.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -57,7 +57,7 @@
 		02255A6981012306BC77D750 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E95E96618666A480E98F0CAD /* Pods_CWCrashProtect.framework */,
+				F136F04F6357CEA7DFD6309B /* libPods-CWCrashProtect.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -147,7 +147,6 @@
 				E8B3A0B524AAE6EC000C6369 /* Sources */,
 				E8B3A0B624AAE6EC000C6369 /* Frameworks */,
 				E8B3A0B724AAE6EC000C6369 /* Resources */,
-				DD116A3EF791BC64F547050F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -223,23 +222,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		DD116A3EF791BC64F547050F /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CWCrashProtect/Pods-CWCrashProtect-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CWCrashProtect/Pods-CWCrashProtect-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CWCrashProtect/Pods-CWCrashProtect-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

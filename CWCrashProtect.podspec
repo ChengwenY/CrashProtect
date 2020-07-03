@@ -9,12 +9,12 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "CWCrashProtect"
-  spec.version      = "0.0.1"
+  spec.version      = "0.0.2"
   spec.summary      = "CWCrashProtect 线上崩溃保护库"
 
   
   spec.description  = <<-DESC
-  崩溃保护
+  avoid common OC crash
                    DESC
 
   spec.homepage     = "https://github.com/ChengwenY/CrashProtect.git"
@@ -29,11 +29,11 @@ Pod::Spec.new do |spec|
   spec.source_files = 'CWCrashProtect/CWCrashProtect.h'
 #  spec.source_files  = "CWCrashProtect/**/*.h", "CWCrashProtect/**/*.m"
   spec.subspec 'Base' do |a|
-    a.source_files = 'CWCrashProtect/Core/*.{h,m}'
+    a.source_files = 'CWCrashProtect/Base/*.{h,m}'
   end
 
-  spec.subspec 'SetProtect' do |a|
-    a.source_files = 'CWCrashProtect/SetProtect/*.{h,m}'
+  spec.subspec 'ContainerProtect' do |a|
+    a.source_files = 'CWCrashProtect/ContainerProtect/*.{h,m}'
     a.dependency 'CWCrashProtect/Base'
   end
 

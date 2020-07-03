@@ -1,24 +1,21 @@
 //
-//  NSObject+CWSELGuard.m
-//  CWCrashProtect
+//  CWUnrecognizedSelectorProtect.m
+//  Pods
 //
-//  Created by Chengwen.Y on 2020/6/28.
+//  Created by Chengwen.Y on 2020/7/2.
 //
 
-#import "NSObject+CWSELGuard.h"
-#import "NSObject+CWMethodHook.h"
-#import <objc/runtime.h>
+#import "CWUnrecognizedSelectorProtect.h"
+#import "CWCrashProtectUtils.h"
+@interface NSObject (CWSELGuard)
 
+@end
 @implementation NSObject (CWSELGuard)
 
-+ (void)load {
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        
-        [self swizzleClassMethod:[NSObject class] originSEL:@selector(forwardingTargetForSelector:) newSEL:@selector(cw_forwardingTargetForClassSelector:)];
-        [self swizzleInstanceMethod:[NSObject class] originSEL:@selector(forwardingTargetForSelector:) newSEL:@selector(cw_forwardingTargetForInstanceSelector:)];
-        
-    });
++ (void)exchangeForwardingMethod
+{
+    cw_swizzleInstanceMethod([NSObject class], @selector(forwardingTargetForSelector:), [self class], @selector(cw_forwardingTargetForClassSelector:));
+    cw_swizzleInstanceMethod([NSObject class], @selector(forwardingTargetForSelector:), [self class], @selector(cw_forwardingTargetForInstanceSelector:));
 }
 
 - (id)cw_forwardingTargetForInstanceSelector:(SEL)aSelector
@@ -26,8 +23,7 @@
     if (![self overrideForwardingInstanceMethods]) {
         NSString *clsname = NSStringFromClass([self class]);
         NSString *sel = NSStringFromSelector(aSelector);
-        NSLog(@"-----未实现的方法--%@ -- %@", clsname, sel);
-        
+        CW_CrashErrorHandler(ECWCrashTypeUnrecognizedSelector, @{}, @"-[%@ %@]: unrecognized selector sent to instance %@", clsname, sel,self);
         NSString *className = @"CW_CrashHandler";
         Class cls = NSClassFromString(className);
         if (!cls) {
@@ -47,8 +43,7 @@
     if (![self overrideForwardingClassMethods]) {
         NSString *clsname = NSStringFromClass([self class]);
         NSString *sel = NSStringFromSelector(aSelector);
-        NSLog(@"-----未实现的类方法--%@ -- %@", clsname, sel);
-        
+        CW_CrashErrorHandler(ECWCrashTypeUnrecognizedSelector, @{}, @"-[%@ %@]: unrecognized selector sent to class %@", clsname, sel ,self);
         NSString *className = @"CW_CrashHandler";
         Class cls = NSClassFromString(className);
         if (!cls) {
@@ -68,14 +63,14 @@
     BOOL override = NO;
     SEL forwardingSel = @selector(forwardingTargetForSelector:);
     SEL signatureSEL = @selector(methodSignatureForSelector:);
-
+    
     Method currentForwardingMethod = class_getInstanceMethod([self class], forwardingSel);
     Method origForwardingMethod = class_getInstanceMethod([NSObject class], forwardingSel);
     
     Method currentMethodSign = class_getInstanceMethod([self class], signatureSEL);
     Method origMethodSign = class_getInstanceMethod([NSObject class], signatureSEL);
     
-    override = method_getImplementation(currentForwardingMethod) == method_getImplementation(origForwardingMethod) || method_getImplementation(currentMethodSign) == method_getImplementation(origMethodSign);
+    override = method_getImplementation(currentForwardingMethod) != method_getImplementation(origForwardingMethod) || method_getImplementation(currentMethodSign) != method_getImplementation(origMethodSign);
     return override;
 }
 
@@ -90,12 +85,21 @@
     Method currentMethodSign = class_getClassMethod([self class], signatureSEL);
     Method origMethodSign = class_getClassMethod([NSObject class], signatureSEL);
     
-    override = method_getImplementation(currentForwardingMethod) == method_getImplementation(origForwardingMethod) || method_getImplementation(currentMethodSign) == method_getImplementation(origMethodSign);
+    override = method_getImplementation(currentForwardingMethod) != method_getImplementation(origForwardingMethod) || method_getImplementation(currentMethodSign) != method_getImplementation(origMethodSign);
     return override;
 }
 
 static int crashSelector(id self, SEL selector) {
     return 0;
+}
+
+@end
+
+@implementation CWUnrecognizedSelectorProtect
+
++ (void)beginProtectUnrecognizedSelector
+{
+    [NSObject exchangeForwardingMethod];
 }
 
 @end

@@ -8,7 +8,6 @@
 
 #import "KVOTestVC.h"
 //#import "NSObject+CWKVOGuard.h"
-#import "NSObject+CWKVCGuard.h"
 @interface TestInfo : NSObject
 @property (nonatomic, assign) NSInteger number;
 @end
@@ -33,7 +32,8 @@
     [info addObserver:self forKeyPath:@"number" options:NSKeyValueObservingOptionNew context:NULL];
     [info addObserver:self forKeyPath:@"number" options:NSKeyValueObservingOptionNew context:NULL];
 //    info.number = 2;
-    [info setValue:@2 forKey:@"number"];
+//    [info valueForKey:@"a"];
+//    [info setValue:@2 forKey:@"number2"];
     
     self.testInfo = [[TestInfo alloc] init];
     [self.testInfo addObserver:self forKeyPath:@"number" options:NSKeyValueObservingOptionNew context:NULL];

@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "ViewController.h"
+#import "CWCrashProtect.h"
 
 @interface AppDelegate ()
 
@@ -30,6 +31,12 @@
     self.window.backgroundColor = [UIColor whiteColor];
     
     [self.window makeKeyAndVisible];
+    
+    [CWCrashProtect openCrashProtect:ECWCrashProtectAll];
+    [CWCrashProtect setErrorHandlerBlock:^(CWCrashCatchError * error) {
+//        NSLog(@"%@", error);
+        NSAssert(NO, error.errorDesc);
+    }];
     return YES;
 }
 

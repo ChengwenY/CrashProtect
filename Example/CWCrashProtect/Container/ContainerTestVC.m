@@ -7,7 +7,6 @@
 //
 
 #import "ContainerTestVC.h"
-#import "NSArray+CWGuard.h"
 
 @interface ContainerTestVC ()
 
@@ -26,7 +25,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.datasource = @[@"objectAtIndex", @"atIndexedSubscript"].mutableCopy;
+    self.datasource = @[@"objectAtIndex", @"atIndexedSubscript", @"NSMutableArray", @"NSDictionary", @"NSMutableDictionary"].mutableCopy;
     
     int y = 100, x = 20, width = (self.view.bounds.size.width- 60)/2 , height = 50;
     NSInteger index = 0;
@@ -51,7 +50,14 @@
     if (index == 0) {
         [self testArrObjectAtIndex];
     } else if (index == 1) {
+        
         [self testArrObjectSubscript];
+    } else if (index == 2) {
+        [self testMArray];
+    } else if (index == 3) {
+        [self testDictionary];
+    } else if (index == 4) {
+        [self testMutableDictionary];
     }
     
 }
@@ -63,8 +69,6 @@
     [singleArr objectAtIndex:1];
     NSArray *arr = @[@1,@2];
     [arr objectAtIndex:2];
-    NSMutableArray *marr = @[@1].mutableCopy;
-    [marr objectAtIndex:3];
 }
 
 - (void)testArrObjectSubscript {
@@ -74,7 +78,22 @@
     singleArr[2];
     NSArray *arr = @[@1,@2];
     arr[3];
+}
+
+- (void)testMArray {
     NSMutableArray *marr = @[@1].mutableCopy;
+    [marr objectAtIndex:3];
     marr[4];
+    [marr insertObject:@2 atIndex:4];
+    [marr removeObjectAtIndex:4];
+    [marr replaceObjectAtIndex:4 withObject:@2];
+    [marr replaceObjectsInRange:NSMakeRange(0, 4) withObjectsFromArray:@[@1,@2,@3,@4]];
+}
+
+- (void)testDictionary {
+}
+
+- (void)testMutableDictionary {
+    
 }
 @end
