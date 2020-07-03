@@ -3,7 +3,7 @@
 VersionString=`grep -E 'spec.version.*=' CWCrashProtect.podspec`
 VersionArr=(`echo $VersionString | tr '=' ' '`)
 VersionNumberStr=${VersionArr[2]}
-VersionNumber=(`${VersionNumberStr}//'"'/''`)
+VersionNumber=(`echo ${VersionNumberStr}//'"'/''`)
 
 git add .
 git commit -m 'updateVersion'
