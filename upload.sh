@@ -8,5 +8,5 @@ git push
 echo "New Version ${VersionNumber}"
 
 git tag ${VersionNumber}
-git push --tags
+git push origin master --tags
 pod trunk push ./CWCrashProtect.podspec --verbose --allow-warnings
