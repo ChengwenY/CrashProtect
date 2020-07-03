@@ -26,7 +26,7 @@ Pod::Spec.new do |spec|
   spec.platform     = :ios, "9.0"
   spec.source       = { :git => "https://github.com/ChengwenY/CrashProtect.git", :tag => "#{spec.version}" }
   
-  spec.source_files = 'CWCrashProtect/CWCrashProtect.h'
+#  spec.source_files = 'CWCrashProtect/Base/CWCrashProtect.h'
 #  spec.source_files  = "CWCrashProtect/**/*.h", "CWCrashProtect/**/*.m"
   spec.subspec 'Base' do |a|
     a.source_files = 'CWCrashProtect/Base/*.{h,m}'
