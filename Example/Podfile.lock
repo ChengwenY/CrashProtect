@@ -1,27 +1,16 @@
 PODS:
-  - CWCrashProtect (0.0.1):
-    - CWCrashProtect/Base (= 0.0.1)
-    - CWCrashProtect/ContainerProtect (= 0.0.1)
-    - CWCrashProtect/KVOProtect (= 0.0.1)
-    - CWCrashProtect/SelectorProtect (= 0.0.1)
-  - CWCrashProtect/Base (0.0.1)
-  - CWCrashProtect/ContainerProtect (0.0.1):
-    - CWCrashProtect/Base
-  - CWCrashProtect/KVOProtect (0.0.1):
-    - CWCrashProtect/Base
-  - CWCrashProtect/SelectorProtect (0.0.1):
-    - CWCrashProtect/Base
+  - CWCrashProtect (0.0.2)
 
 DEPENDENCIES:
-  - CWCrashProtect (from `../`)
+  - CWCrashProtect
 
-EXTERNAL SOURCES:
-  CWCrashProtect:
-    :path: "../"
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - CWCrashProtect
 
 SPEC CHECKSUMS:
-  CWCrashProtect: 76e7bc5769446390171705f17844d2983ea7c106
+  CWCrashProtect: d6c7fccf03c85421e3a97b4b08bec04cf089aa61
 
-PODFILE CHECKSUM: c9eec829331ea7e30b2856f16416342f21ed4391
+PODFILE CHECKSUM: 31b9a134bb32fae8d7b1bfac835f33810ed78fcd
 
 COCOAPODS: 1.7.5

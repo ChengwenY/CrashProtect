@@ -26,26 +26,26 @@ Pod::Spec.new do |spec|
   spec.platform     = :ios, "9.0"
   spec.source       = { :git => "https://github.com/ChengwenY/CrashProtect.git", :tag => "#{spec.version}" }
   
-#  spec.source_files = 'CWCrashProtect/Base/CWCrashProtect.h'
+  spec.source_files = 'CWCrashProtect/**/*.{h,m}'
 #  spec.source_files  = "CWCrashProtect/**/*.h", "CWCrashProtect/**/*.m"
-  spec.subspec 'Base' do |a|
-    a.source_files = 'CWCrashProtect/Base/*.{h,m}'
-  end
-
-  spec.subspec 'ContainerProtect' do |a|
-    a.source_files = 'CWCrashProtect/ContainerProtect/*.{h,m}'
-    a.dependency 'CWCrashProtect/Base'
-  end
-
-  spec.subspec 'KVOProtect' do |a|
-    a.source_files = 'CWCrashProtect/KVOProtect/*.{h,m}'
-    a.dependency 'CWCrashProtect/Base'
-  end
-
-  spec.subspec 'SelectorProtect' do |a|
-    a.source_files = 'CWCrashProtect/SelectorProtect/*.{h,m}'
-    a.dependency 'CWCrashProtect/Base'
-  end
+#  spec.subspec 'Base' do |a|
+#    a.source_files = 'CWCrashProtect/Base/*.{h,m}'
+#  end
+#
+#  spec.subspec 'ContainerProtect' do |a|
+#    a.source_files = 'CWCrashProtect/ContainerProtect/*.{h,m}'
+#    a.dependency 'CWCrashProtect/Base'
+#  end
+#
+#  spec.subspec 'KVOProtect' do |a|
+#    a.source_files = 'CWCrashProtect/KVOProtect/*.{h,m}'
+#    a.dependency 'CWCrashProtect/Base'
+#  end
+#
+#  spec.subspec 'SelectorProtect' do |a|
+#    a.source_files = 'CWCrashProtect/SelectorProtect/*.{h,m}'
+#    a.dependency 'CWCrashProtect/Base'
+#  end
 
 
   # ――― Project Linking ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
