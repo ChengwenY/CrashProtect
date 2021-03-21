@@ -2,15 +2,15 @@ PODS:
   - CWCrashProtect (0.0.2)
 
 DEPENDENCIES:
-  - CWCrashProtect
+  - CWCrashProtect (from `../`)
 
-SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
-    - CWCrashProtect
+EXTERNAL SOURCES:
+  CWCrashProtect:
+    :path: "../"
 
 SPEC CHECKSUMS:
   CWCrashProtect: d6c7fccf03c85421e3a97b4b08bec04cf089aa61
 
-PODFILE CHECKSUM: 31b9a134bb32fae8d7b1bfac835f33810ed78fcd
+PODFILE CHECKSUM: b8eb865c0be03804625608f222a30e1df57b7fff
 
 COCOAPODS: 1.7.5

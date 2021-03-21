@@ -12,7 +12,7 @@
 @interface UnrecognizedTest : NSObject
 
 - (void)test;
-+ (void)classMethod;
++ (void)test;
 
 @end
 
@@ -39,7 +39,7 @@
     UnrecognizedTest *test = [[UnrecognizedTest alloc] init];
     [test test];
     
-    [UnrecognizedTest classMethod];
+    [UnrecognizedTest test];
 }
 
 

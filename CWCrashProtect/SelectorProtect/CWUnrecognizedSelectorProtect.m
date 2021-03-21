@@ -14,7 +14,7 @@
 
 + (void)exchangeForwardingMethod
 {
-    cw_swizzleInstanceMethod([NSObject class], @selector(forwardingTargetForSelector:), [self class], @selector(cw_forwardingTargetForClassSelector:));
+    cw_swizzleClassMethod([NSObject class], @selector(forwardingTargetForSelector:), [self class], @selector(cw_forwardingTargetForClassSelector:));
     cw_swizzleInstanceMethod([NSObject class], @selector(forwardingTargetForSelector:), [self class], @selector(cw_forwardingTargetForInstanceSelector:));
 }
 
@@ -50,7 +50,7 @@
             cls = objc_allocateClassPair([NSObject class], className.UTF8String, 0);
             objc_registerClassPair(cls);
         }
-        if (!class_getInstanceMethod(cls, aSelector)) {
+        if (!class_getClassMethod(cls, aSelector)) {
             class_addMethod(object_getClass(cls), aSelector, (void *)crashSelector, "@@:");
         }
         return cls;
